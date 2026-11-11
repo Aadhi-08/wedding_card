@@ -161,7 +161,7 @@ export const weddingConfig: WeddingConfig = {
     subTitle: "Venue for Both Events",
     completeAddress: "No. 102, Sivan Kovil Main Road, Thiruverkadu",
     cityState: "Chennai - 600077, Tamil Nadu",
-    googleMapsUrl: "https://maps.app.goo.gl/9tnKteEYvjUbXD217?g_st=aw",
+    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Annai+Mahal+AC,+Sivan+Kovil+Road,+Thiruverkadu,+Chennai+600077",
     image: "/assets/annai_mahal.jpg"
   },
 
@@ -199,9 +199,9 @@ export const weddingConfig: WeddingConfig = {
   },
 
   music: {
-    // Royalty-free traditional Indian wedding instrumental shehnai/flute sound stream
-    audioUrl: "https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=indian-instrumental-music-flute-11234.mp3",
-    title: "Nadaswaram & Shehnai Melodies"
+    // Local audio file hosted directly in public/assets folder
+    audioUrl: "/assets/wedding_music.m4a",
+    title: "Nadaswaram & Traditional Wedding Melodies"
   },
 
   rsvp: {

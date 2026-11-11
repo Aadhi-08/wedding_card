@@ -11,6 +11,8 @@ export const MusicPlayer: React.FC = () => {
     const audio = audioRef.current;
     if (!audio) return;
 
+    audio.volume = 1.0;
+
     const tryPlay = () => {
       if (userStoppedRef.current) return;
       audio
@@ -35,15 +37,17 @@ export const MusicPlayer: React.FC = () => {
       removeListeners();
     };
 
-    const events = ['click', 'touchstart', 'scroll', 'keydown'];
+    const events = ['pointerdown', 'touchstart', 'mousedown', 'click', 'scroll', 'keydown'];
     const removeListeners = () => {
       events.forEach((evt) => {
-        window.removeEventListener(evt, handleFirstInteraction);
+        window.removeEventListener(evt, handleFirstInteraction, true);
+        document.removeEventListener(evt, handleFirstInteraction, true);
       });
     };
 
     events.forEach((evt) => {
-      window.addEventListener(evt, handleFirstInteraction, { once: true, passive: true });
+      window.addEventListener(evt, handleFirstInteraction, { capture: true, once: true, passive: true });
+      document.addEventListener(evt, handleFirstInteraction, { capture: true, once: true, passive: true });
     });
 
     return () => {
@@ -77,11 +81,16 @@ export const MusicPlayer: React.FC = () => {
       {/* Hidden HTML Audio element */}
       <audio
         ref={audioRef}
-        src={weddingConfig.music.audioUrl}
         loop
         autoPlay
+        playsInline
         preload="auto"
-      />
+      >
+        <source src={weddingConfig.music.audioUrl} type="audio/mp4" />
+        <source src="/assets/wedding_music.m4a" type="audio/mp4" />
+        <source src="/assets/wedding_music.mp4" type="audio/mp4" />
+        <source src="/assets/wedding_music.mp3" type="audio/mpeg" />
+      </audio>
 
       {/* Floating Pill Button */}
       <button
