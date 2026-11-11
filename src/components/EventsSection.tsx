@@ -83,10 +83,16 @@ export const EventsSection: React.FC = () => {
 
               {/* Venue & Description */}
               <div className="space-y-2 max-w-md">
-                <div className="flex items-center justify-center space-x-1 text-[#8A6468] text-xs md:text-sm font-medium">
-                  <MapPin className="w-4 h-4 text-[#B89B5E] shrink-0" />
-                  <span>{mainEvent.venueName}, {mainEvent.address}</span>
-                </div>
+                <a
+                  href={weddingConfig.venue.googleMapsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center space-x-1 text-[#8A6468] hover:text-[#6E3943] text-xs md:text-sm font-medium transition-colors group cursor-pointer"
+                  title="Open location in Google Maps"
+                >
+                  <MapPin className="w-4 h-4 text-[#B89B5E] group-hover:scale-110 transition-transform shrink-0" />
+                  <span className="group-hover:underline underline-offset-2">{mainEvent.venueName}, {mainEvent.address}</span>
+                </a>
                 <p className="font-serif text-xs md:text-sm text-[#8A6468] italic leading-relaxed pt-2">
                   "{mainEvent.description}"
                 </p>
@@ -155,10 +161,16 @@ export const EventsSection: React.FC = () => {
 
               <div>
                 {/* Venue */}
-                <p className="font-serif text-xs text-[#8A6468] font-medium flex items-center justify-center gap-1">
-                  <MapPin className="w-3 h-3 text-[#B89B5E]" />
-                  <span>{event.venueName}</span>
-                </p>
+                <a
+                  href={weddingConfig.venue.googleMapsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-serif text-xs text-[#8A6468] hover:text-[#6E3943] font-medium flex items-center justify-center gap-1 group cursor-pointer"
+                  title="Open location in Google Maps"
+                >
+                  <MapPin className="w-3 h-3 text-[#B89B5E] group-hover:scale-110 transition-transform" />
+                  <span className="group-hover:underline underline-offset-2">{event.venueName}</span>
+                </a>
               </div>
             </motion.div>
           ))}

@@ -161,7 +161,7 @@ export const weddingConfig: WeddingConfig = {
     subTitle: "Venue for Both Events",
     completeAddress: "No. 102, Sivan Kovil Main Road, Thiruverkadu",
     cityState: "Chennai - 600077, Tamil Nadu",
-    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Annai+Mahal+AC+Thiruverkadu+Chennai+600077",
+    googleMapsUrl: "https://maps.app.goo.gl/9tnKteEYvjUbXD217?g_st=aw",
     image: "/assets/annai_mahal.jpg"
   },
 

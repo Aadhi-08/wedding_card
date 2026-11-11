@@ -1,11 +1,55 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Music, VolumeX, Sparkles } from 'lucide-react';
 import { weddingConfig } from '../config/weddingConfig';
 
 export const MusicPlayer: React.FC = () => {
   const [isPlaying, setIsPlaying] = useState(false);
-  const [hasInteracted, setHasInteracted] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
+  const userStoppedRef = useRef(false);
+
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    const tryPlay = () => {
+      if (userStoppedRef.current) return;
+      audio
+        .play()
+        .then(() => {
+          setIsPlaying(true);
+        })
+        .catch((err) => {
+          // Autoplay blocked by browser policy until user gesture
+          console.log('Autoplay waiting for user gesture:', err);
+        });
+    };
+
+    // 1. Attempt immediate autoplay on mount
+    tryPlay();
+
+    // 2. Play on first user interaction anywhere (click, tap, scroll, keypress)
+    const handleFirstInteraction = () => {
+      if (!userStoppedRef.current && audio.paused) {
+        tryPlay();
+      }
+      removeListeners();
+    };
+
+    const events = ['click', 'touchstart', 'scroll', 'keydown'];
+    const removeListeners = () => {
+      events.forEach((evt) => {
+        window.removeEventListener(evt, handleFirstInteraction);
+      });
+    };
+
+    events.forEach((evt) => {
+      window.addEventListener(evt, handleFirstInteraction, { once: true, passive: true });
+    });
+
+    return () => {
+      removeListeners();
+    };
+  }, []);
 
   const toggleMusic = () => {
     if (!audioRef.current) return;
@@ -13,15 +57,16 @@ export const MusicPlayer: React.FC = () => {
     if (isPlaying) {
       audioRef.current.pause();
       setIsPlaying(false);
+      userStoppedRef.current = true;
     } else {
+      userStoppedRef.current = false;
       audioRef.current
         .play()
         .then(() => {
           setIsPlaying(true);
-          setHasInteracted(true);
         })
         .catch((err) => {
-          console.log('Audio autoplay prevented:', err);
+          console.log('Audio playback prevented:', err);
           setIsPlaying(false);
         });
     }
@@ -34,6 +79,7 @@ export const MusicPlayer: React.FC = () => {
         ref={audioRef}
         src={weddingConfig.music.audioUrl}
         loop
+        autoPlay
         preload="auto"
       />
 
@@ -61,7 +107,7 @@ export const MusicPlayer: React.FC = () => {
         </div>
 
         <span className="font-serif text-xs font-semibold tracking-wider uppercase pr-1 hidden sm:inline">
-          {isPlaying ? 'Music On' : 'Wedding Music'}
+          {isPlaying ? 'Music Playing' : 'Play Music'}
         </span>
 
         {/* Small Sparkle Icon */}
