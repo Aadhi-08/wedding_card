@@ -37,7 +37,7 @@ export interface WeddingConfig {
   invitationMessage: string;
   weddingDateFormatted: string;
   countdownTargetDate: string; // ISO 8601 format: YYYY-MM-DDTHH:mm:ss
-  
+
   // Hero section images
   divineHeroImage: string;
   couplePortraitImage: string;
@@ -90,7 +90,7 @@ export const weddingConfig: WeddingConfig = {
   tagline: "Celebrate Love!",
   invitationMessage: "Santhosh Sivan & Sai Priya are getting married. Join us for an evening of celebrations, dinner, and dancing.",
   weddingDateFormatted: "21 & 22 NOVEMBER 2026",
-  
+
   // Set target countdown date (Grand Reception: November 21, 2026 at 06:30 PM)
   countdownTargetDate: "2026-11-21T18:30:00",
 
@@ -108,16 +108,16 @@ export const weddingConfig: WeddingConfig = {
       role: "Bride's Parents & Family",
       title: "With the Blessings Of",
       names: [
-        "Mr. [Bride's Father Name]",
-        "Mrs. [Bride's Mother Name]"
+        "Mr. RAJANGAM",
+        "Mrs. NIRMALA"
       ]
     },
     {
       role: "Groom's Parents & Family",
       title: "With the Blessings Of",
       names: [
-        "Mr. [Groom's Father Name]",
-        "Mrs. [Groom's Mother Name]"
+        "Mr. MOHAN",
+        "Mrs. JAYANTHI"
       ]
     },
     {
