@@ -96,7 +96,7 @@ export const weddingConfig: WeddingConfig = {
 
   // Images in public/assets folder
   divineHeroImage: "/assets/divine_hand_reach.png",
-  couplePortraitImage: "/assets/invitation_card.jpg",
+  couplePortraitImage: "/assets/couple_3.png",
   templeVenueImage: "/assets/temple_gopuram.png",
   marriageHallImage: "/assets/annai_mahal.jpg", // Photo of Annai Mahal Marriage Hall (stored in public/assets/)
 
@@ -167,28 +167,28 @@ export const weddingConfig: WeddingConfig = {
 
   gallery: [
     {
-      id: "moments-card",
-      url: "/assets/invitation_card.jpg",
-      caption: "Official Wedding Invitation Card",
-      aspect: "vertical"
-    },
-    {
       id: "moments-1",
       url: "/assets/couple_1.png",
-      caption: "Sacred bond & joyous moments",
+      caption: "Santhosh Sivan & Sai Priya — Sacred bond & timeless grace",
       aspect: "vertical"
     },
     {
       id: "moments-2",
       url: "/assets/couple_2.png",
-      caption: "Pre-wedding laughter & bliss",
-      aspect: "square"
+      caption: "A lifetime of shared laughter and sacred promises",
+      aspect: "vertical"
     },
     {
       id: "moments-3",
       url: "/assets/couple_3.png",
-      caption: "Traditional celebrations with loved ones",
-      aspect: "wide"
+      caption: "Cherished beginnings with the blessings of loved ones",
+      aspect: "vertical"
+    },
+    {
+      id: "moments-card",
+      url: "/assets/invitation_card.jpg",
+      caption: "Official Wedding Invitation Card",
+      aspect: "vertical"
     }
   ],
 
