@@ -45,7 +45,7 @@ export const GallerySection: React.FC = () => {
                 <img 
                   src={photo.url} 
                   alt={photo.caption} 
-                  className="w-full h-auto max-h-[480px] object-cover object-center transform transition-transform duration-700 group-hover:scale-105"
+                  className="w-full h-auto object-cover object-top transform transition-transform duration-700 group-hover:scale-105"
                 />
 
                 {/* Subtle Hover / Tap Overlay */}

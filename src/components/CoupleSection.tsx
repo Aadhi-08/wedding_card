@@ -46,7 +46,7 @@ export const CoupleSection: React.FC = () => {
               <img 
                 src={weddingConfig.couplePortraitImage} 
                 alt={`${weddingConfig.groom} & ${weddingConfig.bride}`} 
-                className="w-full h-full object-cover object-center transform hover:scale-105 transition-transform duration-700"
+                className="w-full h-full object-cover object-top transform hover:scale-105 transition-transform duration-700"
               />
             </div>
           </div>

@@ -29,7 +29,7 @@ export const MusicPlayer: React.FC = () => {
     // 1. Attempt immediate autoplay on mount
     tryPlay();
 
-    // 2. Play on first user interaction anywhere (click, tap, scroll, keypress)
+    // 2. Play on first user interaction anywhere (click, tap, scroll, touch, keydown)
     const handleFirstInteraction = () => {
       if (!userStoppedRef.current && audio.paused) {
         tryPlay();
@@ -78,18 +78,19 @@ export const MusicPlayer: React.FC = () => {
 
   return (
     <div className="fixed bottom-6 right-6 z-40 flex items-center select-none">
-      {/* Hidden HTML Audio element */}
+      {/* Hidden HTML Audio element with direct source for instant native decoding */}
       <audio
         ref={audioRef}
+        src={weddingConfig.music.audioUrl}
         loop
         autoPlay
         playsInline
         preload="auto"
       >
-        <source src={weddingConfig.music.audioUrl} type="audio/mp4" />
+        <source src={weddingConfig.music.audioUrl} type="audio/aac" />
+        <source src="/assets/wedding_music.aac" type="audio/aac" />
         <source src="/assets/wedding_music.m4a" type="audio/mp4" />
         <source src="/assets/wedding_music.mp4" type="audio/mp4" />
-        <source src="/assets/wedding_music.mp3" type="audio/mpeg" />
       </audio>
 
       {/* Floating Pill Button */}

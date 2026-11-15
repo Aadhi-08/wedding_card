@@ -199,8 +199,8 @@ export const weddingConfig: WeddingConfig = {
   },
 
   music: {
-    // Local audio file hosted directly in public/assets folder
-    audioUrl: "/assets/wedding_music.m4a",
+    // Pure standalone AAC audio extracted directly for 100% universal browser playback
+    audioUrl: "/assets/wedding_music.aac",
     title: "Nadaswaram & Traditional Wedding Melodies"
   },
 
