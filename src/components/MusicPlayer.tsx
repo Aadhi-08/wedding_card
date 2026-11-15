@@ -89,8 +89,6 @@ export const MusicPlayer: React.FC = () => {
       >
         <source src={weddingConfig.music.audioUrl} type="audio/aac" />
         <source src="/assets/wedding_music.aac" type="audio/aac" />
-        <source src="/assets/wedding_music.m4a" type="audio/mp4" />
-        <source src="/assets/wedding_music.mp4" type="audio/mp4" />
       </audio>
 
       {/* Floating Pill Button */}
